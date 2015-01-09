@@ -9,14 +9,15 @@ while browsing on Google Chrome.
 ## Step by Step Customization
 
 1. Go to [BART API Registration](http://api.bart.gov/api/register.aspx) and obtain an API key.
-2. Fork and Clone this repo or download zip.
+2. Fork and Clone this repo or download zip file.
 3. Open app.js in the file. In the url section of ajax, change the following:
-  * Specify the station by changing orig=mlbr. You can see full list of
+  * Specify the station by changing 'orig=mlbr'. You can see full list of
   station abbreviations [here](http://api.bart.gov/docs/overview/abbrev.aspx).
-  * Insert your API key in key=insert-key-here.
+  * Insert your API key in 'key=insert-key-here'.
 4. In the getEtd function, change the first if statement to specify
 line colors that you want. 'color' variable can be 'RED', 'BLUE', 'GREEN',
 'YELLOW', or 'ORANGE'.
 5. Open Google Chrome and enter chrome://extensions on the address bar.
 6. Check the Developer mode on the top-right, and click Load unpacked extension.
-7. Select folder that you cloned or downloaded, and you're ready to use it!
+7. Select the folder that you cloned or downloaded on the pop-up screen.
+8. Use the extension!
