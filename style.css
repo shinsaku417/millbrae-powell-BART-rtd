@@ -1,0 +1,23 @@
+.redLine {
+  background-color: #FF5F5F;
+}
+
+.blueLine {
+  background-color: #7E7EFF;
+}
+
+.greenLine {
+  background-color: #99FF99;
+}
+
+.yellowLine {
+  background-color: #FFFF82;
+}
+
+.orangeLine {
+  background-color: #FF9933;
+}
+
+.title, .min {
+  font-weight: bold;
+}

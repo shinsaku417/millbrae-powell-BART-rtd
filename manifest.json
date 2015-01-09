@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+
+  "name": "Millbrae-Powell BART RTD",
+  "description": "This extension lets you know real time departures of
+  BART trains that go from Millbrae to Powell Street or vice versa.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "index.html"
+  }
+}
