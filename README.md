@@ -4,7 +4,7 @@ Simple and customizable chrome extension that allows you to see real time
 departures for BART trains that go from Millbrae to Powell Street or vice versa
 while browsing on Google Chrome.
 
-![Demo](https://s3.amazonaws.com/f.cl.ly/items/2g1F2q150d2H0h2G173t/Screen%20Recording%202015-01-09%20at%2010.11%20AM.gif)
+![Demo](https://s3.amazonaws.com/f.cl.ly/items/3P2a2I1U1E0y0R0z0S19/Screen%20Recording%202015-01-09%20at%2011.52%20AM.gif)
 
 ## Step by Step Customization
 
