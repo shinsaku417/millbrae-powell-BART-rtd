@@ -8,11 +8,11 @@ while browsing on Google Chrome.
 
 ## Step by Step Customization
 
-1. Go to ![BART API Registration](http://api.bart.gov/api/register.aspx) and obtain an API key.
+1. Go to [BART API Registration](http://api.bart.gov/api/register.aspx) and obtain an API key.
 2. Fork and Clone this repo or download zip.
 3. Open app.js in the file. In the url section of ajax, change the following:
   * Specify the station by changing orig=mlbr. You can see full list of
-  station abbreviations ![here](http://api.bart.gov/docs/overview/abbrev.aspx).
+  station abbreviations [here](http://api.bart.gov/docs/overview/abbrev.aspx).
   * Insert your API key in key=insert-key-here.
 4. In the getEtd function, change the first if statement to specify
 line colors that you want. 'color' variable can be 'RED', 'BLUE', 'GREEN',
