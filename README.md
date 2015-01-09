@@ -18,5 +18,5 @@ while browsing on Google Chrome.
 line colors that you want. 'color' variable can be 'RED', 'BLUE', 'GREEN',
 'YELLOW', or 'ORANGE'.
 5. Open Google Chrome and enter chrome://extensions on the address bar.
-6. Check the Developer mode on top-right, and click Load unpacked extension.
+6. Check the Developer mode on the top-right, and click Load unpacked extension.
 7. Select folder that you cloned or downloaded, and you're ready to use it!
