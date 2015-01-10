@@ -40,28 +40,31 @@ $(function() {
       'yellowLine': [],
       'orangeLine': []
     };
-    $(data).find('estimate').each(function() {
+    $(data).find('etd').each(function() {
       var color = $(this).find('color')[0].innerHTML;
-      // Specify lines of your choice here
-      if (color === 'RED' || color === 'YELLOW') {
-        var min = $(this).find('minutes')[0].innerHTML;
-        switch(color) {
-          case 'RED':
-            timeData.redLine.push(min);
-            break;
-          case 'BLUE':
-            timeData.blueLine.push(min);
-            break;
-          case 'GREEN':
-            timeData.greenLine.push(min);
-            break;
-          case 'YELLOW':
-            timeData.yellowLine.push(min);
-            break;
-          case 'ORANGE':
-            timeData.orangeLine.push(min);
-            break;
-        }
+      var destination = $(this).find('abbreviation')[0].innerHTML.toLowerCase();
+      // Change the destinations of your choice
+      if (destination === 'rich' || destination === 'mlbr' || destination === 'pitt') {
+        $(this).find('estimate').each(function() {
+          var min = $(this).find('minutes')[0].innerHTML;
+          switch(color) {
+            case 'RED':
+              timeData.redLine.push(min);
+              break;
+            case 'BLUE':
+              timeData.blueLine.push(min);
+              break;
+            case 'GREEN':
+              timeData.greenLine.push(min);
+              break;
+            case 'YELLOW':
+              timeData.yellowLine.push(min);
+              break;
+            case 'ORANGE':
+              timeData.orangeLine.push(min);
+              break;
+          }
+        });
       }
     });
     appendData(timeData, direction);

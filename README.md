@@ -15,8 +15,8 @@ while browsing on Google Chrome.
   station abbreviations [here](http://api.bart.gov/docs/overview/abbrev.aspx).
   * Insert your API key in 'key=insert-key-here'.
 4. In the getEtd function, change the first if statement to specify
-line colors that you want. 'color' variable can be 'RED', 'BLUE', 'GREEN',
-'YELLOW', or 'ORANGE'.
+destinations of your choice. Abbreviations for stations can be found in
+the link above.
 5. Open Google Chrome and enter chrome://extensions on the address bar.
 6. Check the Developer mode on the top-right, and click Load unpacked extension.
 7. Select the folder that you cloned or downloaded on the pop-up screen.
