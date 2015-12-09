@@ -1,15 +1,70 @@
 $(function() {
   // Get Real Time Departures for northbound trains from Millbrae
+
+  var key = "MW9S-E7SL-26DU-VV8V"; //No string attached Key; http://www.bart.gov/schedules/developers/api
+  var origin = "mcar"; //TODO: change to where you are getting on 
+  var destination = "embr"; //TODO: change to where you are getting off. 
+
+
+// http://api.bart.gov/docs/overview/abbrev.aspx
+//
+// abbr  station
+// 12th  12th St. Oakland City Center
+// 16th  16th St. Mission (SF)
+// 19th  19th St. Oakland
+// 24th  24th St. Mission (SF)
+// ashb  Ashby (Berkeley)
+// balb  Balboa Park (SF)
+// bayf  Bay Fair (San Leandro)
+// cast  Castro Valley
+// civc  Civic Center (SF)
+// cols  Coliseum
+// colm  Colma
+// conc  Concord
+// daly  Daly City
+// dbrk  Downtown Berkeley
+// dubl  Dublin/Pleasanton
+// deln  El Cerrito del Norte
+// plza  El Cerrito Plaza
+// embr  Embarcadero (SF)
+// frmt  Fremont
+// ftvl  Fruitvale (Oakland)
+// glen  Glen Park (SF)
+// hayw  Hayward
+// lafy  Lafayette
+// lake  Lake Merritt (Oakland)
+// mcar  MacArthur (Oakland)
+// mlbr  Millbrae
+// mont  Montgomery St. (SF)
+// nbrk  North Berkeley
+// ncon  North Concord/Martinez
+// oakl  Oakland Int'l Airport
+// orin  Orinda
+// pitt  Pittsburg/Bay Point
+// phil  Pleasant Hill
+// powl  Powell St. (SF)
+// rich  Richmond
+// rock  Rockridge (Oakland)
+// sbrn  San Bruno
+// sfia  San Francisco Int'l Airport
+// sanl  San Leandro
+// shay  South Hayward
+// ssan  South San Francisco
+// ucty  Union City
+// wcrk  Walnut Creek
+// wdub  West Dublin
+// woak  West Oakland
+
+
+
+  // Get Real Time Departures for northbound trains 
   $.ajax ({
-    // Register for BART API at http://api.bart.gov/api/register.aspx and insert key
-    // Change orig=mlbr to station of your choice. Full list of abbreviations
-    // can be found at http://api.bart.gov/docs/overview/abbrev.aspx
-    url: "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=mlbr&dir=n&key=insert-key-here",
+    url: "http://api.bart.gov/api/etd.aspx?cmd=etd&orig="+origin+"&dir=n&key="+key,
     type: 'GET',
     success: function (data) {
       $('.northbound').prepend('<div class = "direction">Northbound</div>');
       var station = $(data).find('abbr')[0].innerHTML;
-      $('.northbound').prepend('<div class = "station">' + station + '</div>');
+      $('.northbound').prepend('<div class = "station">To '+station+'</div>');
       getEtd(data, '.northbound')
     },
     error: function (data) {
@@ -17,14 +72,14 @@ $(function() {
     }
   });
 
-  // Get Real Time Departures for southbound trains from Powell Street
+  // Get Real Time Departures for southbound trains 
   $.ajax ({
-    url: "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=powl&dir=s&key=insert-key-here",
+    url: "http://api.bart.gov/api/etd.aspx?cmd=etd&orig="+destination+"&dir=s&key="+key,
     type: 'GET',
     success: function (data) {
       $('.southbound').prepend('<div class = "direction">Southbound</div>');
       var station = $(data).find('abbr')[0].innerHTML;
-      $('.southbound').prepend('<div class = "station">' + station + '</div>');
+      $('.southbound').prepend('<div class = "station">To '+station+'</div>');
       getEtd(data, '.southbound');
     },
     error: function (data) {
