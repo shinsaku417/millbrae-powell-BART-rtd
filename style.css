@@ -21,3 +21,13 @@
 .min, .station {
   font-weight: bold;
 }
+
+
+#distanceBtn {
+	font-size: 8px;
+}
+
+#distance {
+	font-size: 8px;
+	color: red;
+}

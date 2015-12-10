@@ -137,4 +137,30 @@ $(function() {
       }
     }
   }
+
+
+
+
+  // html 5 geolocation functions 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    alert("Latitude: " + position.coords.latitude); 
+    // "<br>Longitude: " + position.coords.longitude;  
+}
+
+// events
+$('#distanceBtn').on('click', function(){
+   getLocation(function(diff){
+      $('#distanceBtn').replaceWith( '<div id="distance"> Walk Time:'+ diff +'</div>');
+   })
+});
+
+
 });
