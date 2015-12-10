@@ -3,7 +3,7 @@ $(function() {
 
   var key = "MW9S-E7SL-26DU-VV8V"; //No string attached Key; http://www.bart.gov/schedules/developers/api
   var origin = "mcar"; //TODO: change to where you are getting on 
-  var destination = "embr"; //TODO: change to where you are getting off. 
+  var destination = "mont"; //TODO: change to where you are getting off. 
 
 
 // http://api.bart.gov/docs/overview/abbrev.aspx
@@ -141,26 +141,13 @@ $(function() {
 
 
 
-  // html 5 geolocation functions 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    alert("Latitude: " + position.coords.latitude); 
-    // "<br>Longitude: " + position.coords.longitude;  
-}
-
-// events
-$('#distanceBtn').on('click', function(){
-   getLocation(function(diff){
-      $('#distanceBtn').replaceWith( '<div id="distance"> Walk Time:'+ diff +'</div>');
-   })
-});
+  // events
+  $('#distanceBtn').on('click', function(){
+     getLocation(function(diff){
+          $('#distanceBtn').replaceWith( '<div id="distance"> Walk Time: '+ diff +'</div>');
+       
+     });
+  });
 
 
 });

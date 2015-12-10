@@ -1,3 +1,7 @@
+body{
+	min-width: 100px;
+}
+
 .redLine {
   background-color: #FF5F5F;
 }
@@ -18,16 +22,22 @@
   background-color: #FF9933;
 }
 
+
+
+
 .min, .station {
   font-weight: bold;
 }
-
 
 #distanceBtn {
 	font-size: 8px;
 }
 
 #distance {
-	font-size: 8px;
+	font-size: 10px;
 	color: red;
+}
+
+.direction {
+	font-size: 8px;
 }
