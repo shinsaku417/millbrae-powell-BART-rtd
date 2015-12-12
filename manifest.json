@@ -12,6 +12,13 @@
   },
 
   "permissions": [
-  	"geolocation"
-  ]
+  	"geolocation", 
+    "http://*/",
+    "http://*.google.com/",
+    "http://localhost/*",
+    "https://maps.googleapis.com/*",
+    "https://maps.google.com/*"
+  ], 
+
+  "content_security_policy": "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'"
 }

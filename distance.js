@@ -1,7 +1,14 @@
+
+
+
+
+
+
 // html 5 geolocation functions 
 function getLocation(cb) {
   if (navigator.geolocation) {
 	    navigator.geolocation.getCurrentPosition(function(position) {
+	    	console.log('position: ', position.coords);
 	    	getDiffDistance({'lat': position.coords.latitude, 'lng' : position.coords.longitude}, cb);
 	    }, function(error) {
 	        alert('Error occurred. Error code: ' + error.code);         
@@ -21,7 +28,7 @@ function getDiffDistance(origin, cb){
 	service.getDistanceMatrix({
 		origins: [_origin],
 		destinations: [_destination],
-		travelMode: google.maps.TravelMode.WALKING,
+		travelMode: google.maps.TravelMode.DRIVING,
 		unitSystem: google.maps.UnitSystem.METRIC,
 		avoidHighways: true,
 		avoidTolls: true
