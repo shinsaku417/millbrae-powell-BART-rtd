@@ -3,7 +3,7 @@ $(function() {
 
   var key = "MW9S-E7SL-26DU-VV8V"; //No string attached Key; http://www.bart.gov/schedules/developers/api
   var origin = "mcar"; //TODO: change to where you are getting on 
-  var destination = "embr"; //TODO: change to where you are getting off. 
+  var destination = "mont"; //TODO: change to where you are getting off. 
 
 
 // http://api.bart.gov/docs/overview/abbrev.aspx
@@ -137,4 +137,35 @@ $(function() {
       }
     }
   }
+
+  // events
+  $('#distanceBtn').on('click', function(){
+     getLocation(function(diff){
+          $('#distanceBtn').replaceWith( '<div id="distance"> Walk Time: '+ diff +'</div>');
+       
+     });
+  });
+
+
+
+  
+
+/**
+ * Below is a modified version of the Google Analytics asynchronous tracking
+ * code snippet.  It has been modified to pull the HTTPS version of ga.js
+ * instead of the default HTTP version.  It is recommended that you use this
+ * snippet instead of the standard tracking snippet provided when setting up
+ * a Google Analytics account.
+ */
+
+// (function() {
+//   var ga = document.createElement('script');
+//   ga.type = 'text/javascript';
+//   ga.async = true;
+//   ga.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA6K7FU3aUCNfuPYeZl_ZmtdEpaApDtChk';
+//   var s = document.getElementsByTagName('script')[0];
+//   s.parentNode.insertBefore(ga, s);
+// })();
+
+
 });
