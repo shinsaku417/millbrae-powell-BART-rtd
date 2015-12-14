@@ -1,16 +1,16 @@
 // html 5 geolocation functions 
 function getLocation(cb) {
-  if (navigator.geolocation) {
-	    navigator.geolocation.getCurrentPosition(function(position) {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
 	    	//getDiffDistance({'lat': position.coords.latitude, 'lng' : position.coords.longitude});
 	    	// console.log({'lat': position.coords.latitude, 'lng' : position.coords.longitude});
-			cb({'lat': position.coords.latitude, 'lng' : position.coords.longitude});
+	    	cb({'lat': position.coords.latitude, 'lng' : position.coords.longitude});
 	    	//return {'lat': position.coords.latitude, 'lng' : position.coords.longitude};
 	    }, function(error) {
-	        alert('Error occurred. Error code: ' + error.code);         
+	    	alert('Error occurred. Error code: ' + error.code);         
 	    },{timeout:5000});
 	}else{
-	    alert('no geolocation support');
+		alert('no geolocation support');
 	}
 }
 
@@ -20,10 +20,14 @@ function getLocation(cb) {
 function getDiffDistance(origin, cb){
 	var _origin = new google.maps.LatLng(origin.lat, origin.lng);
 	var _destination = new google.maps.LatLng(37.7894069, -122.40106730000002); //bart location
+	googleDistanceMatrix(_origin, [_destination], cb);
+}
+
+function googleDistanceMatrix(origin, destination, cb){
 	var service = new google.maps.DistanceMatrixService();
 	service.getDistanceMatrix({
-		origins: [_origin],
-		destinations: [_destination],
+		origins: [origin],
+		destinations: destination,
 		travelMode: google.maps.TravelMode.WALKING,
 		unitSystem: google.maps.UnitSystem.METRIC,
 		avoidHighways: true,
@@ -32,13 +36,13 @@ function getDiffDistance(origin, cb){
 		if (status !== google.maps.DistanceMatrixStatus.OK) {
 			alert('Error was: ' + status);
 		} else {
-			cb(response.rows[0].elements[0].duration.text);
+			cb(response.rows[0].elements[0]);
 		}
 	});
 }
 
 
-//closest bart station to you function
+//return string of closest abbreviated bart station.
 function closestBartStation(currentLat, currentLng){ //passing in current location
 
 	var _currentLat = parseInt(currentLat);
@@ -48,9 +52,10 @@ function closestBartStation(currentLat, currentLng){ //passing in current locati
 
 	//bartstation from bartstation.js
 	for( var key in bartstation ){
-		var distance = haversine(_currentLat, _currentLng, bartstation[key]['gtfs_latitude'], bartstation[key]['gtfs_longitude']);
-		// console.log(bartstation[key]['abbr']);
-		// console.log('distance', distance);
+		var distance = 
+		haversine(_currentLat, _currentLng, bartstation[key]['gtfs_latitude'], bartstation[key]['gtfs_longitude']);
+		
+
 		if (!closest || closestDist > distance){
 			closest = bartstation[key]['abbr'];
 			closestDist = distance;
@@ -62,13 +67,13 @@ function closestBartStation(currentLat, currentLng){ //passing in current locati
 
 //wikipedia haversine for calculating gps coordinates. 
 function haversine() {
-       var radians = Array.prototype.map.call(arguments, function(deg) { return deg/180.0 * Math.PI; });
-       var lat1 = radians[0], lon1 = radians[1], lat2 = radians[2], lon2 = radians[3];
-       var R = 6372.8; // km
-       var dLat = lat2 - lat1;
-       var dLon = lon2 - lon1;
-       var a = Math.sin(dLat / 2) * Math.sin(dLat /2) + Math.sin(dLon / 2) * Math.sin(dLon /2) * Math.cos(lat1) * Math.cos(lat2);
-       var c = 2 * Math.asin(Math.sqrt(a));
-       return R * c;
+	var radians = Array.prototype.map.call(arguments, function(deg) { return deg/180.0 * Math.PI; });
+	var lat1 = radians[0], lon1 = radians[1], lat2 = radians[2], lon2 = radians[3];
+  var R = 6372.8; // km
+  var dLat = lat2 - lat1;
+  var dLon = lon2 - lon1;
+  var a = Math.sin(dLat / 2) * Math.sin(dLat /2) + Math.sin(dLon / 2) * Math.sin(dLon /2) * Math.cos(lat1) * Math.cos(lat2);
+  var c = 2 * Math.asin(Math.sqrt(a));
+  return R * c;
 }
 //console.log(haversine(36.12, -86.67, 33.94, -118.40));
