@@ -24,7 +24,7 @@ function getDiffDistance(origin, cb){
 	service.getDistanceMatrix({
 		origins: [_origin],
 		destinations: [_destination],
-		travelMode: google.maps.TravelMode.DRIVING,
+		travelMode: google.maps.TravelMode.WALKING,
 		unitSystem: google.maps.UnitSystem.METRIC,
 		avoidHighways: true,
 		avoidTolls: true
